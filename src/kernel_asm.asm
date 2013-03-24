@@ -11,7 +11,16 @@ init_kernel:
     ; reload selectors
     jmp   0x08:reload_selectors ; 0x08 points at the new code selector
 
-    ; init idt
+reload_selectors:
+   mov ax, 010h ; data selector
+   mov ds, ax
+   mov es, ax
+   mov fs, ax
+   mov gs, ax
+   mov ss, ax
+   jmp init_idtr
+
+; init idt
 init_idtr:
     lidt [ idtr ]
 
@@ -24,17 +33,7 @@ init_idtr:
      ; EM = 0 bit 2
      ; NE = 1 bit 5
     fninit
-
     ret
-
-reload_selectors:
-   mov ax, 010h ; data selector
-   mov ds, ax
-   mov es, ax
-   mov fs, ax
-   mov gs, ax
-   mov ss, ax
-   jmp init_idtr
 
 ; IDT
 idtr:
@@ -81,7 +80,7 @@ gdt_codesel:
     db 0           ; base: 0
     db 0x9A        ; access bytes: code
     db 0xCF        ; flags (1100) : limit(0xFF)
-    db 0          ; base: 0
+    db 0           ; base: 0
 gdt_datasel:
     dw 0xffff      ; limit: 65k
     dw 0           ; base: 0
