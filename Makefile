@@ -36,5 +36,5 @@ clean:
 	rm -rf build
 	mkdir build
 	mkdir build/klibc
-	rm cd.iso
+	rm -f cd.iso
 	

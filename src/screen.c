@@ -18,62 +18,6 @@ void setpos(int x, int y)
     cursor_y = y;
 }
 
-void putint(int i)
-{
-	if (i < 0) {
-		putch('-');
-		i = -i;
-	}
-
-	int j = 1000000000;
-	int res = 0;
-	for (; j > 0; j -= 10) {
-		res = i / j;
-		if (res > 0) {
-			break;
-		}
-	}
-
-	for (; j > 0; j -= 10) {
-		res = i / j;
-		switch(res % 10) {
-		case 0:
-			putch('0');
-			break;
-		case 1:
-			putch('1');
-			break;
-		case 2:
-			putch('2');
-			break;
-		case 3:
-			putch('3');
-			break;
-		case 4:
-			putch('4');
-			break;
-		case 5:
-			putch('5');
-			break;
-		case 6:
-			putch('6');
-			break;
-		case 7:
-			putch('7');
-			break;
-		case 8:
-			putch('8');
-			break;
-		case 9:
-			putch('9');
-			break;
-		}
-	}
-	//char buffer[100];
-	//sprintf(buffer, "%d", i);
-	//print(buffer);
-}
-
 void print(char* str)
 {
 	int len = strlen(str);
