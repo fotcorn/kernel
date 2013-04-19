@@ -11,7 +11,7 @@ void init_keyboard() {
 
     outb(KEYBOARD_CMD, 0x60); // set keyboard configuration
     while ((inb(KEYBOARD_CMD) & 0x2)); // wait until data is in output buffer
-    outb(KEYBOARD_DATA, config);
+    outb(KEYBOARD_DATA, config); // send configuration data
 }
 
 void keyboard_interrupt() {
