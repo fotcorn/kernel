@@ -10,8 +10,8 @@ void init_keyboard() {
     config &= ~(1 << 6); // disable translation from scancode set 2 to 1
 
     outb(KEYBOARD_CMD, 0x60); // set keyboard configuration
-    while ((inb(KEYBOARD_CMD) & 0x2)); // wait until data is in output buffer
-    outb(KEYBOARD_DATA, config);
+    while ((inb(KEYBOARD_CMD) & 0x2)); // wait until data input buffer is clear
+    outb(KEYBOARD_DATA, config); // write configuration
 }
 
 void keyboard_interrupt() {
