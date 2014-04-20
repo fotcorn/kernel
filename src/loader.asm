@@ -1,8 +1,11 @@
 global loader                           ; making entry point visible to linker
  
+global heap
+
 extern kmain                            ; kmain is defined in kernel.c
 
 extern init_kernel
+
 
 ; setting up the Multiboot header - see GRUB docs for details
 MODULEALIGN equ  1<<0                   ; align loaded modules on page boundaries
@@ -20,7 +23,7 @@ align 4
  
 ; reserve initial kernel stack space
 STACKSIZE equ 0x100000                    ; that's 16k.
- 
+HEAPSIZE equ 0x100000
 loader:
     mov  esp, stack + STACKSIZE         ; set up the stack
 
@@ -39,3 +42,7 @@ section .bss
 align 4
 stack:
     resb STACKSIZE                      ; reserve 16k stack on a doubleword boundary
+
+align 4
+heap:
+	resb HEAPSIZE                       ; reserve 16k heap memory

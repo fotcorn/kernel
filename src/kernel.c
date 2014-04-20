@@ -1,6 +1,7 @@
 #include "screen.h"
 #include "pic.h"
 #include "keyboard.h"
+#include "mem.h"
 
 void kmain( void* mbd, unsigned int magic )
 {
@@ -15,6 +16,12 @@ void kmain( void* mbd, unsigned int magic )
 
     print("test");
     print("pyos 0.001");
+
+    char* str = malloc(8);
+    memset(str, 'a', 7);
+    str[7] = '\0';
+
+    print(str);
 
     while (1) {}
 }
