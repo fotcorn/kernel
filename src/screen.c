@@ -9,7 +9,6 @@ static unsigned char* video_memory = (unsigned char*)0xb8000;
 #define WHITE_BLACK 0x07
 
 unsigned int cursor_x, cursor_y;
-unsigned int screen_pos;
 
 
 void setpos(int x, int y)
@@ -65,4 +64,6 @@ void clear(void) {
 		*(memory+1) = WHITE_BLACK;
 		memory += 2;
 	}
+	cursor_x = 0;
+	cursor_y = 0;
 }
