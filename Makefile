@@ -1,7 +1,7 @@
 # compiler
 CC=gcc
 LD=ld
-CFLAGS=-c -m32 -nostdlib -fno-builtin -nostartfiles -nodefaultlibs -I src -I src/klibc
+CFLAGS=-c -m32 -nostdlib -fno-builtin -nostartfiles -nodefaultlibs -std=c99 -I src -I src/klibc
 NASMLFAGS=-f elf
 
 LDFLAGS=-melf_i386 -T src/linker.ld
