@@ -58,3 +58,11 @@ void putch(char c)
 
 }
 
+void clear(void) {
+	unsigned char* memory = video_memory;
+	for (int i = 0; i < SCREEN_WIDTH * SCREEN_HEIGHT; i++) {
+		*memory = ' ';
+		*(memory+1) = WHITE_BLACK;
+		memory += 2;
+	}
+}

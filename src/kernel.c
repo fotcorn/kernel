@@ -8,6 +8,8 @@ void kmain( void* mbd, unsigned int magic )
 	init_pic();
 	init_keyboard();
 
+	clear();
+
     putch('A');
     putch('B');
     putch('\n');
