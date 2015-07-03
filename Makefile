@@ -21,7 +21,7 @@ all: $(ISO)
 
 $(ISO): $(KERNEL_BIN)
 	cp $(KERNEL_BIN) iso
-	grub-mkrescue -o $(ISO) iso
+	grub-mkrescue -o $(ISO) iso -d /usr/lib/grub/i386-pc/
 
 $(KERNEL_BIN): dirs $(ASM_OBJECTS) $(C_OBJECTS)
 	$(LD) $(LDFLAGS) -o $(KERNEL_BIN) $(ASM_OBJECTS) $(C_OBJECTS)
