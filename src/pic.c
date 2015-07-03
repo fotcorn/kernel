@@ -44,7 +44,7 @@ void init_pic() {
 	outb(PIC1_DATA, 0xfd); // 1111 1101
 	outb(PIC2_DATA, 0xff); // 1111 1111
 
-	asm volatile ("sti"); // enable interrupts
+	__asm__ volatile ("sti"); // enable interrupts
 }
 
 void pic_eoi(unsigned char irq) {
