@@ -38,7 +38,7 @@ void putch(char c)
     else
     {
         unsigned int position = cursor_y * SCREEN_WIDTH + cursor_x;
-        char* memory = video_memory + position*2;
+        unsigned char* memory = video_memory + position*2;
         *memory = c;
         *(memory+1) = WHITE_BLACK;
         cursor_x++;
@@ -54,7 +54,12 @@ void putch(char c)
     	memset(video_memory + ((SCREEN_WIDTH * (SCREEN_HEIGHT - 1)) * 2), 0, SCREEN_WIDTH * 2);
     	cursor_y--;
     }
+}
 
+void putint(int i) {
+	char c[30];
+	itoa(i, c, 16);
+	print(c);
 }
 
 void clear(void) {

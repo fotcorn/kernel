@@ -28,8 +28,3 @@ void itoa(int value, char *sp, int radix)
     	*sp++ = *--tp;
 }
 
-void putint(int i) {
-	char c[30];
-	itoa(i, c, 16);
-	print(c);
-}

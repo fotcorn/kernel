@@ -3,6 +3,8 @@
 #include "keyboard.h"
 #include "mem.h"
 
+#include <string.h>
+
 void kmain( void* mbd, unsigned int magic )
 {
 	init_pic();

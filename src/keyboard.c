@@ -22,7 +22,6 @@ void init_keyboard() {
 }
 
 void keyboard_interrupt() {
-	static char flags = 0;
 	pic_eoi(0x1);
 
 	unsigned char scancode = inb(KEYBOARD_DATA);
