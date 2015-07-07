@@ -17,7 +17,7 @@ void setpos(int x, int y)
     cursor_y = y;
 }
 
-void print(char* str)
+void print(const char* str)
 {
 	int len = strlen(str);
 	int i;
@@ -25,7 +25,11 @@ void print(char* str)
 	{
 		putch(str[i]);
 	}
-	putch('\n');
+}
+
+void println(const char* str) {
+    print(str);
+    putch('\n');
 }
 
 void putch(char c)

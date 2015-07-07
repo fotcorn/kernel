@@ -12,12 +12,13 @@ void kmain( void* mbd, unsigned int magic )
 
 	clear();
 
-    print("Welcome to CornOS 0.0.1");
+    println("Welcome to CornOS 0.0.1");
     while(1) {
         print("# ");
         char* line = readline();
-        print("You entered:");
-        print(line);
+        println("");
+        println("You entered:");
+        println(line);
     }
 
     while (1) {}

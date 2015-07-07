@@ -4,7 +4,8 @@
 void setpos(int x, int y);
 void putch(char c);
 void putint(int i);
-void print(char* str);
+void print(const char* str);
+void println(const char* str);
 void clear();
 
 #endif
