@@ -1,9 +1,9 @@
 #include "mem.h"
 
-extern void* heap;
+extern char* heap;
 
 void* malloc(size_t size) {
-	void* return_heap = heap;
+	char* return_heap = heap;
 	heap = heap + size;
 	return return_heap;
 }
