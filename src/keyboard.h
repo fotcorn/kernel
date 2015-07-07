@@ -3,6 +3,7 @@
 
 void keyboard_interrupt();
 void init_keyboard();
+char* readline();
 
 #define R_SHIFT 1
 #define L_SHIFT 2

@@ -12,20 +12,13 @@ void kmain( void* mbd, unsigned int magic )
 
 	clear();
 
-    putch('A');
-    putch('B');
-    putch('\n');
-    putch('A');
-    putch('\n');
-
-    print("test");
-    print("pyos 0.001");
-
-    char* str = malloc(8);
-    memset(str, 'a', 7);
-    str[7] = '\0';
-
-    print(str);
+    print("Welcome to CornOS 0.0.1");
+    while(1) {
+        print("# ");
+        char* line = readline();
+        print("You entered:");
+        print(line);
+    }
 
     while (1) {}
 }
