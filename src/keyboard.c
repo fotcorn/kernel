@@ -45,11 +45,15 @@ void keyboard_interrupt() {
         if (multi_scancode) {
             multi_scancode = 0;
         } else {
-            scancode = SCANCODES[scancode];
-            if (scancode != 0) {
-                line[line_length] = scancode;
-                line_length += 1;
-                line_ready = 1;
+            if (scancode == 0x5A) {
+                 line_ready = 1;
+            } else {
+                scancode = SCANCODES[scancode];
+                if (scancode != 0) {
+                    line[line_length] = scancode;
+                    putch(scancode);
+                    line_length += 1;
+                }
             }
         }
     }
