@@ -1,3 +1,6 @@
+#ifndef PIC_H
+#define PIC_H
+
 // i/o port
 #define PIC1_COMMAND 0x20
 #define PIC1_DATA 0x21
@@ -11,3 +14,6 @@
 
 void init_pic();
 void pic_eoi(unsigned char irq);
+
+#endif
+
