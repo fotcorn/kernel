@@ -1,5 +1,4 @@
 #include "keyboard.h"
-#include "screen.h"
 #include "pic.h"
 #include "io.h"
 #include "mem.h"
@@ -30,25 +29,33 @@ static char line[256];
 static unsigned int multi_scancode = 0;
 
 
-
+static int shift_down = 0;
 
 void keyboard_interrupt() {
 	pic_eoi(0x1);
 
 	unsigned char scancode = inb(KEYBOARD_DATA);
-	//putint(scancode);
     if (scancode == 0xE0) {
         multi_scancode = scancode;
     } else if (scancode == 0xF0) {
         multi_scancode = scancode;
     } else {
         if (multi_scancode) {
+            if (multi_scancode == 0xF0 && scancode == 0x12) { // left shift released
+                shift_down = 0;
+            }
             multi_scancode = 0;
         } else {
-            if (scancode == 0x5A) {
-                 line_ready = 1;
+            if (scancode == 0x5A) { // enter
+                line_ready = 1;
+            } else if (scancode == 0x12) { // left shift pressed
+                shift_down = 1;
             } else {
-                scancode = SCANCODES[scancode];
+                if (shift_down) {
+                    scancode = SCANCODES_SHIFT[scancode];
+                } else {
+                    scancode = SCANCODES[scancode];
+                }
                 if (scancode != 0) {
                     line[line_length] = scancode;
                     putch(scancode);

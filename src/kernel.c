@@ -19,6 +19,7 @@ void kmain( void* mbd, unsigned int magic )
         println("");
         println("You entered:");
         println(line);
+        free(line);
     }
 
     while (1) {}
