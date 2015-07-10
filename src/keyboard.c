@@ -50,6 +50,8 @@ void keyboard_interrupt() {
                 line_ready = 1;
             } else if (scancode == 0x12) { // left shift pressed
                 shift_down = 1;
+            } else if (scancode == 0x66) { // backspace
+                backspace();
             } else {
                 if (shift_down) {
                     scancode = SCANCODES_SHIFT[scancode];

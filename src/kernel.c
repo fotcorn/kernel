@@ -14,7 +14,6 @@ void kmain( void* mbd, unsigned int magic )
 
     println("Welcome to CornOS 0.0.1");
     while(1) {
-        print("# ");
         char* line = readline();
         println("");
         println("You entered:");

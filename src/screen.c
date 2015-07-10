@@ -60,6 +60,14 @@ void putch(char c)
     }
 }
 
+void backspace(void) {
+    if (cursor_x != 0) {
+        cursor_x--;
+        putch(' ');
+        cursor_x--;
+    }
+}
+
 void putint(int i) {
 	char c[30];
 	itoa(i, c, 16);
